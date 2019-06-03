@@ -1,0 +1,25 @@
+<span class="header-text">Todo list</span>
+<div class="todo-container">
+    <div class="input-container">
+        <div class="input-field">
+        <form autocomplete="off">
+            <input id="input" [(ngModel)]="text" class="textfield new-todo" name="newTodo" type="text" placeholder="Add new todo..."
+                #todoText> 
+                <button class="btn btn-primary" (click)="addTodo(todoText)"><i class="fa fa-plus-circle fa-2x"></i></button>
+        </form>
+    </div>
+</div>
+    <div class="todos">
+        <div class="todo-content">
+            <ul class="todo-list">
+                <li class="todo-item" *ngFor="let todo of todos; let i = index">
+                    <div class="toggle-list">
+                        <input class="toggle" type="checkbox" [checked]="todo.completed" (change)="toggleCompletion(i)">
+                        <label class="todo-text">{{todo.text}}</label>
+                        <button class="btn" (click)="deleteTodo(i)"><i class="fa fa-trash fa-lg"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

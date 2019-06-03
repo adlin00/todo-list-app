@@ -1,0 +1,73 @@
+@import 'library';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+body, html{
+    font-family: 'Roboto Mono', monospace;
+    background: $background;
+}
+.header-text{
+    font-size: 40px;
+    @include flexbox;
+    @include justify-content(center);
+    padding: 40px 0;
+}
+.todo-container{
+    width: 80%;
+    margin: 0 auto;
+    @include flexbox;
+    @include flex-direction(column);
+    form{
+        @include flexbox;
+        @include flex-direction(row);
+        padding:2px;
+        input{
+            height: 100px;
+            border: none;
+            width: 100%;
+            font-size: 30px;
+            padding: 16px 16px 16px 50px;
+            &:focus{
+               outline:none; 
+            }
+        }
+        button{
+            width: 100px;
+        }
+    }
+}
+.todos{
+    padding-top: 50px;
+    .todo-list{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        li{
+            padding: 1em;
+            margin: 1em auto;
+            color: $list-text;
+            height: 74px;
+            background: $list-background;
+            @include flexbox;
+            @include justify-content(center);
+            @include flex-direction(column);
+            &:hover{
+                color: $hover;
+            }
+            input{
+                margin-left: 20px;
+            }
+            label{
+                font-size: 24px;
+                margin-left: 50px;
+            }
+            button{
+                float: right;
+            }
+        }
+    }
+}
+input[type=checkbox]:checked + label.todo-text{
+    text-decoration: line-through;
+    color: $hover;
+  }
