@@ -1,5 +1,6 @@
 @import 'library';
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import "mediaSizes";
 
 body, html{
     font-family: 'Roboto Mono', monospace;
@@ -29,9 +30,29 @@ body, html{
             &:focus{
                outline:none; 
             }
+            @media #{$mobile}{
+                height: 84px;
+                padding: 16px 16px 16px 25px;
+                font-size: 23px;
+
+            }
         }
         button{
-            width: 100px;
+            @media #{$desktop}{
+                width: 100px;
+            }
+
+            @media #{$mobile}{
+                background-color: #fff;
+                border: none;
+            }
+            i{
+                @media #{$mobile}{
+                    color: #007bff;    
+                    padding-right: 10px;
+                }
+    
+            }
         }
     }
 }
